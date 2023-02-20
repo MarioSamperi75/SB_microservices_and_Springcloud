@@ -1,4 +1,4 @@
-package com.in28minutes.microservices.currentexchangeservice;
+package com.in28minutes.microservices.currencyexchangeservice;
 
 import java.math.BigDecimal;
 
@@ -61,7 +61,5 @@ public class CurrencyExchange {
 	public void setEnvironment(String environment) {
 		this.environment = environment;
 	}
-	
-	
 	
 }
