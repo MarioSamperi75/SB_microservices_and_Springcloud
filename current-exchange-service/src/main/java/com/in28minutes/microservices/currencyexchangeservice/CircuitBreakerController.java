@@ -15,10 +15,14 @@ public class CircuitBreakerController {
 	private Logger logger = LoggerFactory.getLogger(CircuitBreakerController.class);
 
 	@GetMapping("/circuit-breaker")
-	@Retry(name = "circuit-breaker")
+	@Retry(name = "circuit-breaker", fallbackMethod = "hardcodedResponse")
 	public String dummyApi() {
 		logger.info("Circuit breaker call received");
 		ResponseEntity<String> forEntity = new RestTemplate().getForEntity("http://localhost:8080/not-working-endpoint", String.class);
 		return forEntity.getBody();
+	}
+	
+	public String hardcodedResponse (Exception ex) {
+		return "fallback-response";
 	}
 }
