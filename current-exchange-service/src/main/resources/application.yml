@@ -1,0 +1,9 @@
+resilience4j.ratelimiter:
+
+    instances:
+
+        prova:
+
+            limitForPeriod: 3
+
+            limitRefreshPeriod: 10s
